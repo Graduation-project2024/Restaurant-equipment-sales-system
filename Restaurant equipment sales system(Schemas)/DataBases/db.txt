@@ -1,0 +1,138 @@
+-- (SALES)
+-- جدول العملاء
+CREATE TABLE IF NOT EXISTS CUSTOMERS(
+    customer_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    email VARCHAR(50),
+    phone VARCHAR(11)
+);
+
+-- جدول الطلبات
+CREATE TABLE IF NOT EXISTS ORDERS(
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    FOREIGN KEY(customer_id) REFERENCES CUSTOMERS(customer_id)
+);
+
+-- جدول الشحن
+CREATE TABLE IF NOT EXISTS SHIPPING(
+    shipping_id INT PRIMARY KEY,
+    order_id INT,
+    shipping_date DATE,
+    shipping_method VARCHAR(50),
+    FOREIGN KEY(order_id) REFERENCES ORDERS(order_id)
+);
+
+-- جدول الفواتير
+CREATE TABLE IF NOT EXISTS INVOICES(
+    invoice_id INT PRIMARY KEY,
+    order_id INT,
+    invoice_date DATE,
+    total_amount FLOAT,
+    FOREIGN KEY(order_id) REFERENCES ORDERS(order_id)
+);
+
+-- جدول الدفع
+CREATE TABLE IF NOT EXISTS PAYMENT(
+    payment_id INT PRIMARY KEY,
+    order_id INT,
+    payment_date DATE,
+    amount FLOAT,
+    FOREIGN KEY(order_id) REFERENCES ORDERS(order_id)
+);
+
+
+
+
+-- (PRODUCTS)
+-- جدول الفئات
+CREATE TABLE IF NOT EXISTS EQUIPMENT_CATEGORIES(
+    category_id INT PRIMARY KEY,
+    category_name VARCHAR(50)
+);
+
+
+-- جدول المنتجات
+CREATE TABLE IF NOT EXISTS PRODUCTS(
+    product_id INT PRIMARY KEY,
+    supplier_id INT,
+    category_id INT,
+    name VARCHAR(50),
+    price FLOAT,
+	FOREIGN KEY(category_id) REFERENCES equipment_categories(category_id)
+);
+
+
+-- جدول المراجعات
+CREATE TABLE IF NOT EXISTS REVIEWS(
+    review_id INT PRIMARY KEY,
+    product_id INT,
+    customer_id INT,
+    rating INT,
+    comment_ VARCHAR(255),
+    FOREIGN KEY(product_id) REFERENCES PRODUCTS(product_id),
+    FOREIGN KEY(customer_id) REFERENCES CUSTOMERS(customer_id)
+);
+
+
+-- جدول المخزون
+CREATE TABLE IF NOT EXISTS INVENTORY(
+    inventory_id INT PRIMARY KEY,
+    product_id INT,
+    quantity_in_stock INT,
+    FOREIGN KEY(product_id) REFERENCES PRODUCTS(product_id)
+);
+
+-- جدول علاقة المنتج بالمورد
+CREATE TABLE IF NOT EXISTS PRODUCT_SUPPLIER(
+    product_supplier_id INT PRIMARY KEY,
+    product_id INT,
+    supplier_id INT,
+    FOREIGN KEY(product_id) REFERENCES PRODUCTS(product_id),
+    FOREIGN KEY(supplier_id) REFERENCES SUPPLIER(supplier_id)
+);
+
+-- جدول الموردين
+CREATE TABLE IF NOT EXISTS SUPPLIER(
+    supplier_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    contact_info VARCHAR(100)
+);
+
+-- جدول تفاصيل الطلبات
+CREATE TABLE IF NOT EXISTS ORDER_ITEM(
+    order_item_id INT PRIMARY KEY,
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    FOREIGN KEY(order_id) REFERENCES ORDERS(order_id),
+    FOREIGN KEY(product_id) REFERENCES PRODUCTS(product_id)
+);
+
+
+
+-- (USERS)
+-- جدول الأدوار
+CREATE TABLE IF NOT EXISTS ROLES(
+    role_id INT PRIMARY KEY,
+    role_name VARCHAR(50)
+);
+
+-- جدول المستخدمين
+CREATE TABLE IF NOT EXISTS USERS(
+    user_id INT PRIMARY KEY,
+    role_id INT,
+    username VARCHAR(50),
+    password_ VARCHAR(50),
+    FOREIGN KEY(role_id) REFERENCES ROLES(role_id)
+);
+
+-- جدول التقارير
+CREATE TABLE IF NOT EXISTS REPORTS(
+    report_id INT PRIMARY KEY,
+    user_id INT,
+    report_date DATE,
+    report_content TEXT,
+    FOREIGN KEY(user_id) REFERENCES USERS(user_id)
+);
