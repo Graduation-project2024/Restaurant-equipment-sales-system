@@ -1,0 +1,33 @@
+<header class="header">
+    <section class="flex">
+        <a href="/" class="logo">بيـــرو</span></a>
+            <nav class="navbar">
+                <a href="/">الصفحة الرئيسية</a>
+                <a href="{{ url_for('about') }}">معلومات عنا</a>
+                <a href="{{ url_for('orders') }}">الطلبات</a>
+                <a href="{{ url_for('shop') }}">المتجر</a>
+                <a href="{{ url_for('contact') }}">اتصل بنا</a>
+            </nav>
+                <div class="icons">
+                    <div id="menu-btn" class="fas fa-bars"></div>
+                        <a href="{{ url_for('search') }}"><i class="fas fa-search"></i>بحث</a>
+                        <a href="{{ url_for('wishlist') }}"><i class="fas fa-heart"></i><span>(0)</span></a>
+                        <a href="{{ url_for('cart') }}"><i class="fas fa-shopping-cart"></i><span>(0)</span></a>
+                            <div id="user-btn" class="fas fa-user"></div>
+                </div>
+                <div class="profile">
+                    <p>Name</p>
+                    <a href="{{ url_for('update') }}" class="btn">تحديث الملف الشخصي</a>
+                        <div class="flex-btn">
+                            <a href="{{ url_for('register') }}" class="option-btn">التسجيل</a>
+                            <a href="{{ url_for('login') }}" class="option-btn">تسجيل الدخول</a>
+                        </div>
+                            <a href="#" class="delete-btn" onclick="return confirm('logout from the website?');">تسجيل الخروج</a> 
+                    <p>Please Login Or Register First to proceed !</p>
+                    <div class="flex-btn">
+                        <a href="user_register.php" class="option-btn">Register</a>
+                        <a href="user_login.php" class="option-btn">Login</a>
+                    </div>
+                </div>
+    </section>
+</header>

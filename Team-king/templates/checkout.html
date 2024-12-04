@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>checkout</title>
+   
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+<body>
+   
+<!-- استدعاء رأس الصفحة -->
+{% include "header.html" %}
+
+<section class="checkout-orders">
+
+   <form action="" method="POST">
+
+   <h3>طلباتك</h3>
+
+      <div class="display-orders">
+      
+         <p> الاسم <span>0</span> </p>
+      
+            <p class="empty">عربة التسوق الخاصة بك فارغة!</p>
+         
+         <input type="hidden" name="total_products" value="0">
+         <input type="hidden" name="total_price" value="0" value="">
+         <div class="grand-total">المجموع الكلي : <span>جنيه / 0</span></div>
+      </div>
+
+      <h3>قم بملئ بياناتك</h3>
+
+      <div class="flex">
+         <div class="inputBox">
+            <span>اسم العميل:</span>
+            <input type="text" name="name" placeholder="أدخل اسمك" class="box" maxlength="20" required>
+         </div>
+         <div class="inputBox">
+            <span>رقمك :</span>
+            <input type="number" name="number" placeholder="أدخل رقمك" class="box" min="0" max="9999999999" onkeypress="if(this.value.length == 10) return false;" required>
+         </div>
+         <div class="inputBox">
+            <span>بريدك الإلكتروني :</span>
+            <input type="email" name="email" placeholder="أدخل بريدك الإلكتروني" class="box" maxlength="50" required>
+         </div>
+         <div class="inputBox">
+            <span>طرق الدفع ؟ :</span>
+            <select name="method" class="box" required>
+               <option value="cash on delivery">الدفع عند الاستلام</option>
+               <option value="credit card">بطاقة الإئتمان</option>
+            </select>
+         </div>
+         <div class="inputBox">
+            <span>رقم الشقة :</span>
+            <input type="text" name="flat" placeholder="رقم الشقة" class="box" maxlength="50" required>
+         </div>
+         <div class="inputBox">
+            <span>العنوان :</span>
+            <input type="text" name="street" placeholder="اسم الشارع" class="box" maxlength="50" required>
+         </div>
+         <div class="inputBox">
+            <span>الحي :</span>
+            <input type="text" name="city" placeholder="علي سبيل المثال القباري" class="box" maxlength="50" required>
+         </div>
+         <div class="inputBox">
+            <span>محافظة</span>
+            <input type="text" name="state" placeholder="علي سبيل المثال الاسكندرية" class="box" maxlength="50" required>
+         </div>
+         <div class="inputBox">
+            <span>دولة :</span>
+            <input type="text" name="country" placeholder="علي سبيل المثال مصر" class="box" maxlength="50" required>
+         </div>
+         <div class="inputBox">
+            <span>الرمز البريدي :</span>
+            <input type="number" min="0" name="pin_code" placeholder="alex 21551" min="0" max="999999" onkeypress="if(this.value.length == 6) return false;" class="box" required>
+         </div>
+      </div>
+
+      <input type="submit" name="order" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>" value="ضع الطلب">
+
+   </form>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% include "footer.html" %}
+<script src="/static/js/main.js"></script>
+
+</body>
+</html>

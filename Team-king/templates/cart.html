@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>عربة التسوق</title>
+   
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="static/css/style.css">
+
+</head>
+<body>
+   
+<!-- استدعاء رأس الصفحة -->
+{% include "header.html" %}
+
+<section class="products shopping-cart">
+
+   <h3 class="heading">عربة التسوق</h3>
+
+   <div class="box-container">
+
+   <form action="" method="post" class="box">
+      <input type="hidden" name="cart_id" value="">
+      <a href="" class="fas fa-eye"></a>
+      <img src="" alt="">
+      <div class="name">0</div>
+      <div class="flex">
+         <div class="price">0</div>
+         <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="<?= $fetch_cart['quantity']; ?>">
+         <button type="submit" class="fas fa-edit" name="update_qty"></button>
+      </div>
+      <div class="sub-total"> المجموع الفرعي : <span>0</span> </div>
+      <input type="submit" value="حذف المنتج" onclick="return confirm('delete this from cart?');" class="delete-btn" name="delete">
+   </form>
+   
+     <p class="empty">عربة التسوق فارغة</p>
+   </div>
+
+   <div class="cart-total">
+      <p>المجموع الكلي : <span>0</span></p>
+      <a href="{{url_for('shop') }}" class="option-btn">مواصلة التسوق</a>
+      <a href="#" class="delete-btn <?= ($grand_total > 1)?'':'disabled'; ?>" onclick="return confirm('delete all from cart?');">Delete All Items ?</a>
+      <a href="{{url_for('checkout') }}" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">انتقل إلى الخروج</a>
+   </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+{% include "footer.html" %}
+
+<script src="/static/js/main.js"></script>
+
+</body>
+</html>
