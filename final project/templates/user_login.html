@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-EG">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسحيل الدخول</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+  {% include "header.html" %}
+  <!-- تسجيل الدخول -->
+  <section class="form-container">
+    <!-- نوع المحتوى: جدول -->
+    <form action="" method="post">
+      <h3>تسجيل الدخول الآن</h3>
+      <!-- email -->
+      <input type="email" name="email" required placeholder="أدخل بريدك الإلكتروني" maxlength="50"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <!-- كلمة السر -->
+      <input type="password" name="pass" required placeholder="أدخل كلمة المرور الخاصة بك" maxlength="20"  class="box" oninput="this.value = this.value.replace(/\s/g, '')">
+      <!-- زر الدخول -->
+      <input type="submit" value="تسجيل الدخول الآن" class="btn" name="submit">
+      <!-- في حالة عدم وجود حساب -->
+      <p>ليس لديك حساب؟</p>
+      <a href="{{url_for('register') }}" class="option-btn">سجل الآن</a>
+    </form>
+  </section>
+  {% include "footer.html" %}
+  <script src="/static/js/main.js"></script>
+  </body>
+</html>
