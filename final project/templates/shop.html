@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-EG">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+  {% include "header.html" %}
+    <section class="products">
+    <h1 class="heading">أحدث المنتجات</h1>
+    <!-- نوع المحتوى: جدول عناصر -->
+    <div class="box-container">
+    <form action="" method="post" class="box">
+      {% csrf_token %}
+      <input type="hidden" name="pid" value="">
+      <input type="hidden" name="name" value="">
+      <input type="hidden" name="price" value="">
+      <input type="hidden" name="image" value="">
+      <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+      <a href="{% url 'store:quick_view' %}" class="fas fa-eye"></a>
+      <img src="#" alt="">
+      <div class="name">0 </div>
+      <div class="flex">
+        <div class="price"><span>جنيه /</span> 0</div>
+        <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
+      </div>
+      <input type="submit" value="إضافة إلى السلة" class="btn" name="add_to_cart">
+    </form>
+    <p class="empty">لم يتم العثور على منتجات!</p>
+    </div>
+    </section>
+  {% include "footer.html" %}
+  <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

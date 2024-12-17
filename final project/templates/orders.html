@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-EG">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الطلبات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+  {% include "header.html" %}
+  <!-- صفحة الطلبات -->
+  <section class="orders">
+    <h1 class="heading">الطلبات المقدمة</h1>
+    <!-- نوع المحتوى: جدول عناصر -->
+    <div class="box-container">
+      <div class="box">
+        <!-- تاريخ الطلب -->
+        <p>Placed on : <span>0</span></p>
+        <!-- اسم المستخدم -->
+        <p>Name : <span>0</span></p>
+        <!-- email -->
+        <p>Email : <span>0</span></p>
+        <!-- رقم التليفون -->
+        <p>Phone Number : <span>0</span></p>
+        <!-- العنوان -->
+        <p>Address : <span>0</span></p>
+        <!-- طريقة الدفع -->
+        <p>Payment Method : <span>0</span></p>
+        <!-- منتجات الطلب -->
+        <p>Your orders : <span>0</span></p>
+        <!-- سعر الطلب -->
+        <p>Total price : <span>0</span></p>
+        <!-- حالة الدفع -->
+        <p> Payment status : <span>0</span> </p>
+      </div>
+    </div>
+  </section>
+  {% include "footer.html" %}
+  <script src="/static/js/main.js"></script>
+  </body>
+</html>
