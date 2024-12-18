@@ -15,6 +15,7 @@
     <section class="search-form">
       <!-- نوع المحتوى: جدول -->
       <form action="" method="post">
+        {% csrf_token %}
         <!-- شريط البحث -->
         <input type="text" name="search_box" placeholder="ابحث هنا..." maxlength="100" class="box" required>
         <!-- زر البحث -->
