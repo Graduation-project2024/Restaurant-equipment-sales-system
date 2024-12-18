@@ -18,6 +18,6 @@ urlpatterns = [
     path('wishlist/', views.wishlist, name='wishlist'),
     path('cart/', views.cart, name='cart'),
     path('category/', views.category, name='category'),
-    path('quick/', views.quick_view, name='quick_view'),
+    path('quick-view/', views.quick_view, name='quick_view'),
     path('checkout/', views.checkout, name='checkout'),
 ]

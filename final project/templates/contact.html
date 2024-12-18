@@ -15,6 +15,7 @@
     <section class="contact">
       <!-- نوع المحتوى: جدول -->
     <form action="" method="post">
+      {% csrf_token %}
       <h3>ابقى على تواصل</h3>
       <!-- الاسم -->
       <input type="text" name="name" placeholder="أدخل اسمك" required maxlength="20" class="box">

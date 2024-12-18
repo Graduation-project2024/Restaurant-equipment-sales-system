@@ -73,6 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'R-E-S-S.wsgi.application'
 
+LOGIN_URL = 'store:login'  # توجيه المستخدم إلى صفحة تسجيل الدخول
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
