@@ -104,10 +104,12 @@ Restaurant-equipment-sales-system/
 
 ## 📊 المخططات
 ### مخطط الكيانات والعلاقات (ERD)
-![[Notations for Traditional ERD.jpg]]
+![Notations for Traditional ERD](https://github.com/user-attachments/assets/3c915fa6-225c-40e8-a688-51a8efa03234)
+
+
 ### مخطط تدفق البيانات (DFD)
-(سيتم إضافته بناءً على سير العمل الخاص بالنظام)
-![[Restaurant equipment sales system.jpg]]
+![Restaurant equipment sales system](https://github.com/user-attachments/assets/1c5a4952-ba84-4aae-8dd5-b669fced92ac)
+
 ---
 
 ## 🤝 المساهمون
