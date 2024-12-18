@@ -91,10 +91,7 @@ Restaurant-equipment-sales-system/
 ├── requirement.txt        # المتطلبات البرمجية
 ├── manage.py              # إدارة مشروع Django
 ├── database/              # السكربتات الاحتياطية لقاعدة البيانات
-├── apps/
-│   ├── users/             # تطبيق إدارة المستخدمين
-│   ├── products/          # تطبيق الكتالوج الخاص بالمنتجات
-│   ├── orders/            # تطبيق معالجة الطلبات
+├── store/                 # تطبيق المتجر
 ├── static/                # الموارد الأمامية (CSS/JS/الصور)
 ├── templates/             # القوالب HTML
 └── tests/                 # اختبارات المشروع الآلية
