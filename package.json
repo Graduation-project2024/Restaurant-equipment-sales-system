@@ -1,9 +1,7 @@
 {
-  "name": "demo-repo",
-  "version": "0.2.0",
-  "description": "A sample package.json",
-  "dependencies": {
-    "@primer/css": "17.0.1"
-  },
-  "license": "MIT"
+  "name": "restaurant-equipment-sales-system",
+  "version": "1.0.0",
+  "description": "A web application for selling restaurant equipment.",
+  "author": "[اسمك أو اسم المؤسسة]",
+  "license": "Apache-2.0"
 }
