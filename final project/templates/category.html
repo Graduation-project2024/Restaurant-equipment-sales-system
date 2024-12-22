@@ -21,7 +21,7 @@
         <input type="hidden" name="name" value="0">
         <input type="hidden" name="price" value="0">
         <input type="hidden" name="image" value="0">
-        <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+        <button class="fas fa-heart" type="submit" name="add_to_wishlist">{% csrf_token %}</button>
         <a href="#" class="fas fa-eye"></a>
         <img src="" alt="">
         <div class="name">name</div>

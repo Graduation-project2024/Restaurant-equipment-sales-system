@@ -95,6 +95,7 @@
       <div class="swiper-wrapper">
         <!-- نموذج منتج -->
         <form action="" method="post" class="swiper-slide slide">
+          {% csrf_token %}
           <!-- معرف المنتج -->
           <input type="hidden" name="pid" value="0">
           <!-- اسم المنتج -->
