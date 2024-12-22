@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-EG">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البحث</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    {% include "header.html" %}
+    <!-- صفحة البحث -->
+    <section class="search-form">
+      <!-- نوع المحتوى: جدول -->
+      <form action="" method="post">
+        {% csrf_token %}
+        <!-- شريط البحث -->
+        <input type="text" name="search_box" placeholder="ابحث هنا..." maxlength="100" class="box" required>
+        <!-- زر البحث -->
+        <button type="submit" class="fas fa-search" name="search_btn"></button>
+      </form>
+    </section>
+    <section class="products" style="padding-top: 0; min-height:100vh;">
+      <!-- نتائج البحث -->
+      <div class="box-container">
+        <form action="" method="post" class="box">
+          <input type="hidden" name="pid" value="0">
+          <input type="hidden" name="name" value="0">
+          <input type="hidden" name="price" value="0">
+          <input type="hidden" name="image" value="0">
+          <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
+          <a href="#" class="fas fa-eye"></a>
+          <img src="" alt="">
+          <div class="name">0</div>
+          <div class="flex">
+            <div class="price"><span>جنيه /</span> 0</div>
+            <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
+          </div>
+          <input type="submit" value="اضف الي السلة" class="btn" name="add_to_cart">
+        </form>
+      </div>
+    </section>
+  {% include "footer.html" %}
+  <script src="/static/js/main.js"></script>
+  </body>
+</html>

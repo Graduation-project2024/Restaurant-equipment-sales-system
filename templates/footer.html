@@ -1,0 +1,36 @@
+<!-- ذيل الصفحة -->
+{% load static %}
+<footer class="footer">
+  <!-- نوع المحتوى: شبكة عناصر -->
+  <section class="grid">
+    <div class="box">
+      <h3>روابط سريعة</h3>
+      <a href="{% url 'store:home' %}"> <i class="fas fa-angle-right"></i> الصفحة الرئيسية</a>
+      <a href="{% url 'store:about' %}"> <i class="fas fa-angle-right"></i> ماذا عنا</a>
+      <a href="{% url 'store:shop' %}"> <i class="fas fa-angle-right"></i> المتجر</a>
+      <a href="{% url 'store:contact' %}"> <i class="fas fa-angle-right"></i> الاتصال</a>
+    </div>
+    <div class="box">
+      <h3>روابط اضافية</h3>
+      <a href="{% url 'store:login' %}"> <i class="fas fa-angle-right"></i> تسجيل الدخول</a>
+      <a href="{% url 'store:register' %}"> <i class="fas fa-angle-right"></i> التسجيل</a>
+      <a href="{% url 'store:cart' %}"> <i class="fas fa-angle-right"></i> عربة التسوق</a>
+      <a href="{% url 'store:orders' %}"> <i class="fas fa-angle-right"></i> الطلبات</a>
+    </div>
+    <div class="box">
+      <h3>الاتصال بنا</h3>
+      <a href="tel:+201277767667"><i class="fas fa-phone"></i> +20 *** *** ** **</a>
+      <a href="tel:+201277767667"><i class="fas fa-phone"></i> +20 *** *** ** **</a>
+      <a href="#"><i class="fas fa-envelope"></i> bero@gmail.com</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Egypt | Alexandria</a>
+    </div>
+    <div class="box">
+      <h3>تابعنا</h3>
+      <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i>facebook</a>
+      <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i>Twitter</a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i>Linkedin</a>
+    </div>
+  </section>
+  <div class="credit">&copy; copyright @ 2024 by <span>Team-King</span> | all rights reserved!</div>
+</footer>
