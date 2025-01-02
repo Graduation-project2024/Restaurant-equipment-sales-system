@@ -49,7 +49,7 @@
 
 أ. استنساخ المستودع:
 ```bash
-git clone [[رابط-المستودع]](https://github.com/Graduation-project2024/Restaurant-equipment-sales-system)
+git clone https://github.com/Graduation-project2024/Restaurant-equipment-sales-system
 ```
 
 ب. إنشاء بيئة Python افتراضية:
