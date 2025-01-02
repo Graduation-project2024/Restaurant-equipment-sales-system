@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="about-section">
+  <div class="container">
+    <h1 class="section-title">من نحن</h1>
+
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="{% static 'images/about.jpg' %}" alt="About Eterna">
+      </div>
+
+      <div class="about-content">
+        <h2 class="about-title">معدات مطاعم عالية الجودة</h2>
+        <p class="about-text">
+          نحن في ETERNA نقدم أفضل معدات المطاعم بجودة عالية وأسعار منافسة. نسعى دائماً لتوفير أحدث التقنيات والمعدات التي تلبي احتياجات عملائنا.
+        </p>
+        <p class="about-text">
+          مع خبرة تمتد لأكثر من 15 عاماً في مجال معدات المطاعم، نفخر بتقديم خدمة متميزة وحلول متكاملة لجميع احتياجات مطعمك.
+        </p>
+      </div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-medal feature-icon"></i>
+        <h3 class="feature-title">جودة عالية</h3>
+        <p class="feature-text">نقدم منتجات ذات جودة عالية تلبي المعايير العالمية</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fas fa-truck feature-icon"></i>
+        <h3 class="feature-title">توصيل سريع</h3>
+        <p class="feature-text">خدمة توصيل سريعة وموثوقة لجميع أنحاء مصر</p>
+      </div>
+
+      <div class="feature-card">
+        <i class="fas fa-headset feature-icon"></i>
+        <h3 class="feature-title">دعم فني</h3>
+        <p class="feature-text">فريق دعم فني متخصص لمساعدتك على مدار الساعة</p>
+      </div>
+    </div>
+
+    <div class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div class="stat-label">سنوات من الخبرة</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">1000+</div>
+          <div class="stat-label">عميل سعيد</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">منتج متنوع</div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">دعم فني</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!-- ذيل الصفحة -->
+{% load static %}
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>روابط سريعة</h3>
+      <ul class="footer-links">
+        <li><a href="{% url 'first_storePages:home' %}"><i class="fas fa-home"></i>الرئيسية</a></li>
+        <li><a href="{% url 'first_storePages:shop' %}"><i class="fas fa-shopping-bag"></i>المتجر</a></li>
+        <li><a href="{% url 'first_storePages:about' %}"><i class="fas fa-info-circle"></i>من نحن</a></li>
+        <li><a href="{% url 'first_storePages:contact' %}"><i class="fas fa-envelope"></i>اتصل بنا</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>خدمة العملاء</h3>
+      <ul class="footer-links">
+        <li><a href="#"><i class="fas fa-truck"></i>سياسة الشحن</a></li>
+        <li><a href="#"><i class="fas fa-exchange-alt"></i>سياسة الإرجاع</a></li>
+        <li><a href="#"><i class="fas fa-shield-alt"></i>سياسة الخصوصية</a></li>
+        <li><a href="#"><i class="fas fa-file-alt"></i>الشروط والأحكام</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>تواصل معنا</h3>
+      <div class="footer-contact">
+        <p><i class="fas fa-map-marker-alt"></i>مصر | الإسكندرية</p>
+        <p><i class="fas fa-phone"></i>+20 *** *** ** **</p>
+        <p><i class="fas fa-phone"></i>+20 *** *** ** **</p>
+        <p><i class="fas fa-envelope"></i>bero@gmail.com</p>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.twitter.com/" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>روابط اضافية</h3>
+      <ul class="footer-links">
+        <li><a href="{% url 'first_storePages:login' %}"><i class="fas fa-chevron-left"></i>تسجيل الدخول</a></li>
+        <li><a href="{% url 'first_storePages:register' %}"><i class="fas fa-chevron-left"></i>التسجيل</a></li>
+        <li><a href="{% url 'first_storePages:cart' %}"><i class="fas fa-chevron-left"></i>عربة التسوق</a></li>
+        <li><a href="{% url 'first_storePages:orders' %}"><i class="fas fa-chevron-left"></i>الطلبات</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; copyright @ 2024 by <a href="#">Team-King</a> | all rights reserved!</p>
+  </div>
+  <script src="{% static 'js/main.js' %}"></script>
+</footer>

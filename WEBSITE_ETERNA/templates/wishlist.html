@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}قائمة الرغبات{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/pages/wishlist.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- المفضله -->
+<section class="wishlist-section">
+  <div class="container">
+    <h1 class="heading">قائمة الرغبات الخاصة بك</h1>
+
+    <div class="wishlist-content">
+      {% if wishlist_items %}
+        <div class="product-grid">
+          {% for item in wishlist_items %}
+            <div class="product-card">
+              <form action="" method="post" class="product-form">
+                {% csrf_token %}
+                <input type="hidden" name="pid" value="{{ item.id }}">
+                <input type="hidden" name="wishlist_id" value="{{ item.wishlist_id }}">
+                <input type="hidden" name="name" value="{{ item.name }}">
+                <input type="hidden" name="price" value="{{ item.price }}">
+                <input type="hidden" name="image" value="{{ item.image.url }}">
+                
+                <div class="product-actions">
+                  <a href="{% url 'first_storePages:quick_view' %}" class="action-btn">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                  <button type="submit" 
+                          name="delete" 
+                          class="action-btn delete-action"
+                          onclick="return confirm('هل تريد حذف هذا المنتج من قائمة الرغبات؟');">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+
+                <div class="product-image">
+                  <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                </div>
+
+                <div class="product-info">
+                  <h3 class="product-name">{{ item.name }}</h3>
+                  <div class="product-price">
+                    <span class="currency">جنيه</span>
+                    <span class="amount">{{ item.price }}</span>
+                  </div>
+
+                  <div class="product-controls">
+                    <div class="quantity-control">
+                      <input type="number" 
+                             name="qty" 
+                             class="quantity-input" 
+                             min="1" 
+                             max="99" 
+                             value="1"
+                             onkeypress="if(this.value.length == 2) return false;">
+                    </div>
+                    
+                    <button type="submit" name="add_to_cart" class="btn btn-primary">
+                      <i class="fas fa-shopping-cart"></i>
+                      اضف الي السلة
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="wishlist-summary">
+          <div class="summary-content">
+            <p class="total-amount">
+              المجموع الكلي : <span>{{ total_amount }}</span> جنيه
+            </p>
+            <div class="summary-actions">
+              <a href="{% url 'first_storePages:shop' %}" class="btn btn-secondary">
+                <i class="fas fa-shopping-bag"></i>
+                مواصلة التسوق
+              </a>
+              <a href="#" 
+                 class="btn btn-danger"
+                 onclick="return confirm('هل تريد حذف جميع المنتجات من قائمة الرغبات؟');">
+                <i class="fas fa-trash"></i>
+                حذف كل المنتجات
+              </a>
+            </div>
+          </div>
+        </div>
+      {% else %}
+        <div class="empty-wishlist">
+          <i class="fas fa-heart-broken"></i>
+          <p>قائمة الرغبات فارغة</p>
+          <a href="{% url 'first_storePages:shop' %}" class="btn btn-primary">
+            تصفح المنتجات
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}البحث{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/pages/search.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- صفحة البحث -->
+<section class="search-section">
+  <div class="container">
+    <h1 class="heading">البحث عن المنتجات</h1>
+    
+    <div class="search-form-container">
+      <form action="" method="post" class="search-form">
+        {% csrf_token %}
+        <div class="search-input-group">
+          <input type="text" 
+                 name="search_box" 
+                 placeholder="ابحث هنا..." 
+                 maxlength="100" 
+                 class="search-input" 
+                 required>
+          <button type="submit" name="search_btn" class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- نتائج البحث -->
+    <div class="search-results">
+      <div class="product-grid">
+        {% if products %}
+          {% for product in products %}
+            <div class="product-card">
+              <div class="product-actions">
+                <form action="" method="post" class="action-form">
+                  <input type="hidden" name="pid" value="{{ product.id }}">
+                  <input type="hidden" name="name" value="{{ product.name }}">
+                  <input type="hidden" name="price" value="{{ product.price }}">
+                  <input type="hidden" name="image" value="{{ product.image.url }}">
+                  <button type="submit" name="add_to_wishlist" class="action-btn">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                  <a href="#" class="action-btn">
+                    <i class="fas fa-eye"></i>
+                  </a>
+                </form>
+              </div>
+              
+              <div class="product-image">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+              </div>
+              
+              <div class="product-info">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <div class="product-price">
+                  <span class="currency">جنيه</span>
+                  <span class="amount">{{ product.price }}</span>
+                </div>
+                
+                <form action="" method="post" class="cart-form">
+                  <input type="hidden" name="pid" value="{{ product.id }}">
+                  <input type="hidden" name="name" value="{{ product.name }}">
+                  <input type="hidden" name="price" value="{{ product.price }}">
+                  <input type="hidden" name="image" value="{{ product.image.url }}">
+                  
+                  <div class="quantity-control">
+                    <input type="number" 
+                           name="qty" 
+                           class="quantity-input" 
+                           min="1" 
+                           max="99" 
+                           value="1"
+                           onkeypress="if(this.value.length == 2) return false;">
+                  </div>
+                  
+                  <button type="submit" name="add_to_cart" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                    اضف الي السلة
+                  </button>
+                </form>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="no-results">
+            <i class="fas fa-search"></i>
+            <p>لم يتم العثور على نتائج</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

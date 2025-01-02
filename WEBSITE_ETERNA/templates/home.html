@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/pages/home.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+{% endblock %}
+
+{% block content %}
+
+<!-- شاشة الإعلان الرئيسية -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1 class="hero-title">ETERNA</h1>
+    <p class="hero-subtitle">معدات مطاعم عالية الجودة</p>
+    <div class="hero-buttons">
+      <a href="{% url 'first_storePages:shop' %}" class="btn-primary">تسوق الآن</a>
+      <a href="{% url 'first_storePages:about' %}" class="btn-primary btn-secondary">تعرف علينا</a>
+    </div>
+  </div>
+</section>
+
+<!-- قسم الفئات -->
+<section class="categories">
+  <div class="container">
+    <h2 class="section-title">تسوق حسب الفئة</h2>
+    <div class="category-grid">
+      <a href="{% url 'first_storePages:category' %}" class="category-card">
+        <img src="{% static 'Images/category1.png' %}" alt="Cooking Tools" class="category-icon">
+        <h3 class="category-name">ادوات طبخ</h3>
+      </a>
+      <a href="{% url 'first_storePages:category' %}" class="category-card">
+        <img src="{% static 'Images/category2.png' %}" alt="Cooking Equipment" class="category-icon">
+        <h3 class="category-name">ادوات طهي</h3>
+      </a>
+      <a href="{% url 'first_storePages:category' %}" class="category-card">
+        <img src="{% static 'Images/category3.png' %}" alt="Pans" class="category-icon">
+        <h3 class="category-name">مقلاة</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- قسم المنتجات -->
+<section class="products">
+  <div class="container">
+    <h2 class="section-title">أحدث المنتجات</h2>
+    <div class="product-grid">
+      <!-- Product Card Template -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="#" alt="Product">
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">اسم المنتج</h3>
+          <div class="product-price">
+            <span class="amount">1,500 جنيه</span>
+          </div>
+          <div class="product-actions">
+            <button class="action-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn">
+              <i class="fas fa-shopping-cart"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- End Product Card Template -->
+    </div>
+  </div>
+</section>
+
+<!-- ذيل الصفحة-->
+{% include "footer.html" %}
+
+<!-- استدعاء مكتبة Swiper JavaScript -->
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<!-- Javascript files -->
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/slider_home.js' %}"></script>
+{% endblock %}

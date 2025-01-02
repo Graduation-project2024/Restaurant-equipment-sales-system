@@ -1,0 +1,348 @@
+/* Profile Page Specific Styles */
+.profile-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.profile-header {
+    background: #0A0A0A;
+    border: 1px solid rgba(173, 139, 72, 0.2);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(173, 139, 72, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #AD8B48;
+}
+
+.profile-info h2 {
+    color: #AD8B48;
+    margin-bottom: 0.5rem;
+}
+
+.profile-info p {
+    color: rgba(173, 139, 72, 0.7);
+}
+
+.profile-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.profile-section {
+    background: #0A0A0A;
+    border: 1px solid rgba(173, 139, 72, 0.2);
+    border-radius: 0.5rem;
+    padding: 4rem 2rem;
+    min-height: calc(100vh - 80px);
+    margin-top: -1px;
+}
+
+.section-title {
+    color: #AD8B48;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title i {
+    font-size: 1.1rem;
+}
+
+.form-group label {
+    display: block;
+    color: #AD8B48;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid rgba(173, 139, 72, 0.2);
+    background: rgba(173, 139, 72, 0.1);
+    border-radius: 0.25rem;
+    color: #AD8B48;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #AD8B48;
+}
+
+.password-requirements {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(173, 139, 72, 0.7);
+}
+
+.requirement {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.requirement i {
+    font-size: 0.8rem;
+}
+
+.requirement.valid {
+    color: #28a745;
+}
+
+.requirement.invalid {
+    color: #dc3545;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: #AD8B48;
+    color: #0A0A0A;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #c4a564;
+}
+
+/* Profile Content */
+.profile-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: #0A0A0A;
+    border: 1px solid rgba(173, 139, 72, 0.2);
+    border-radius: 0.625rem;
+    padding: 2rem;
+}
+
+/* Form Sections */
+.form-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(173, 139, 72, 0.2);
+}
+
+.form-section:last-child {
+    margin-bottom: 2rem;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    color: #AD8B48;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Form Controls */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 95%;
+    padding: 0.8rem 1rem;
+    background: rgba(173, 139, 72, 0.1);
+    border: 2px solid rgba(173, 139, 72, 0.2);
+    border-radius: 1.5rem;
+    color: #AD8B48;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #AD8B48;
+    outline: none;
+}
+
+/* Alerts */
+.alert {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.alert-success {
+    background: rgba(40, 167, 69, 0.1);
+    border: 1px solid rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.alert-danger {
+    background: rgba(220, 53, 69, 0.1);
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+}
+
+/* Form Errors */
+.form-error {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+/* Password Requirements */
+.password-requirements {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(173, 139, 72, 0.1);
+    border: 1px solid rgba(173, 139, 72, 0.2);
+    border-radius: 0.5rem;
+}
+
+.requirements-title {
+    color: #AD8B48;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.requirements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.requirements-list li {
+    color: rgba(173, 139, 72, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    padding-right: 1.5rem;
+    position: relative;
+}
+
+.requirements-list li:last-child {
+    margin-bottom: 0;
+}
+
+.requirements-list li:before {
+    content: "•";
+    color: #AD8B48;
+    position: absolute;
+    right: 0;
+}
+
+.requirements-list li.valid {
+    color: #28a745;
+}
+
+.requirements-list li.valid:before {
+    content: "✓";
+}
+
+.requirements-list li.invalid {
+    color: #dc3545;
+}
+
+.requirements-list li.invalid:before {
+    content: "✗";
+}
+
+/* Form Actions */
+.form-actions {
+    text-align: center;
+}
+
+.btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn i {
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: #AD8B48;
+    color: #0A0A0A;
+}
+
+.btn-primary:hover {
+    background: #c4a564;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .profile-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-section {
+        padding: 2rem 1rem;
+    }
+    
+    .profile-card {
+        padding: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-container {
+        margin: 1rem auto;
+    }
+
+    .profile-section {
+        padding: 1rem;
+    }
+    
+    .profile-card {
+        padding: 1rem;
+    }
+    
+    .form-section {
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

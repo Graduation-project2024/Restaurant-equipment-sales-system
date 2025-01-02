@@ -1,0 +1,127 @@
+/* Home Page Specific Styles */
+.home-slider {
+    position: relative;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.slider-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #AD8B48;
+}
+
+.featured-products {
+    padding: 4rem 0;
+}
+
+.featured-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.product-card {
+    background: #0A0A0A;
+    border: 1px solid rgba(173, 139, 72, 0.2);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 1rem;
+}
+
+.product-title {
+    color: #AD8B48;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    color: #c4a564;
+    font-weight: bold;
+}
+
+.categories-section {
+    padding: 4rem 0;
+    background: rgba(173, 139, 72, 0.05);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.category-card {
+    position: relative;
+    height: 200px;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.category-title {
+    color: #AD8B48;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-slider {
+        height: 40vh;
+    }
+
+    .featured-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .home-slider {
+        height: 30vh;
+    }
+
+    .featured-grid,
+    .categories-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+}

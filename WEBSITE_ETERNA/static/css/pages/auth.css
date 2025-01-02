@@ -1,0 +1,107 @@
+/* Authentication Pages Styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.4rem;
+  background: linear-gradient(316deg, var(--dark-bg) 0%, var(--card-bg) 100%);
+}
+
+.auth-form {
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(1.25rem);
+  border-radius: 1.25rem;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 23.75rem;
+  box-shadow: 0 0 1.25rem rgba(173, 139, 72, 0.1);
+  border: 0.0625rem solid rgba(180, 148, 90, 0.15);
+}
+
+.auth-title {
+  color: var(--primary-gold);
+  font-size: 2.25rem;
+  text-align: center;
+  margin-bottom: 3.6rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.auth-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 0.15rem;
+  background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+}
+
+.password-requirements {
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 0.45rem;
+  padding: 1.44rem;
+  margin-top: 0.6rem;
+  border: 0.075rem solid rgba(180, 148, 90, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.password-requirements.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.requirement {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.6rem;
+  font-size: 0.96rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: right;
+  justify-content: flex-end;
+}
+
+.requirement.valid {
+  color: var(--primary-gold);
+}
+
+.strength-meter {
+  height: 0.3rem;
+  background: rgba(180, 148, 90, 0.1);
+  border-radius: 0.15rem;
+  margin-top: 1.2rem;
+  overflow: hidden;
+}
+
+.strength-meter .meter {
+  height: 100%;
+  width: 0;
+  transition: all 0.3s ease;
+}
+
+.auth-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.auth-links a {
+  color: var(--primary-gold);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.auth-links a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 36rem) {
+  .auth-form {
+    padding: 2.4rem 1.8rem;
+  }
+}

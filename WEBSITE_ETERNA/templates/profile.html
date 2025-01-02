@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}الملف الشخصي{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{% static 'css/pages/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="profile-section">
+  <div class="container">
+    <h1 class="heading">الملف الشخصي</h1>
+
+    <div class="profile-content">
+      <div class="profile-card">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert {% if message.tags == 'error' %}alert-danger{% else %}alert-success{% endif %}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        {% if form.non_field_errors %}
+          {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+              {{ error }}
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <form method="post" action="" class="profile-form">
+          {% csrf_token %}
+          
+          <div class="form-section">
+            <h2 class="section-title">المعلومات الأساسية</h2>
+            
+            <div class="form-group">
+              <label class="form-label">اسم المستخدم</label>
+              {{ form.username }}
+              {% if form.username.errors %}
+                {% for error in form.username.errors %}
+                  <div class="form-error">{{ error }}</div>
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">البريد الإلكتروني</label>
+              {{ form.email }}
+              {% if form.email.errors %}
+                {% for error in form.email.errors %}
+                  <div class="form-error">{{ error }}</div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h2 class="section-title">تغيير كلمة المرور</h2>
+            
+            <div class="form-group">
+              <label class="form-label">كلمة المرور الحالية</label>
+              {{ form.current_password }}
+              {% if form.current_password.errors %}
+                {% for error in form.current_password.errors %}
+                  <div class="form-error">{{ error }}</div>
+                {% endfor %}
+              {% endif %}
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">كلمة المرور الجديدة</label>
+              {{ form.new_password }}
+              {% if form.new_password.errors %}
+                {% for error in form.new_password.errors %}
+                  <div class="form-error">{{ error }}</div>
+                {% endfor %}
+              {% endif %}
+              <div class="password-requirements">
+                <p class="requirements-title">متطلبات كلمة المرور:</p>
+                <ul class="requirements-list">
+                  <li>8 أحرف على الأقل</li>
+                  <li>حرف كبير واحد على الأقل</li>
+                  <li>رقم واحد على الأقل</li>
+                  <li>رمز خاص واحد على الأقل</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">تأكيد كلمة المرور الجديدة</label>
+              {{ form.confirm_password }}
+              {% if form.confirm_password.errors %}
+                {% for error in form.confirm_password.errors %}
+                  <div class="form-error">{{ error }}</div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save"></i>
+              حفظ التغييرات
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

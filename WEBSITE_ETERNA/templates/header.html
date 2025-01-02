@@ -1,0 +1,63 @@
+{% load static %}
+<header class="header">
+    <div class="header-container">
+        <a href="{% url 'first_storePages:home' %}" class="logo">ETERNA</a>
+
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="{% url 'first_storePages:home' %}"><i class="fas fa-home"></i>الصفحة الرئيسية</a></li>
+            <li><a href="{% url 'first_storePages:about' %}"><i class="fas fa-info-circle"></i>معلومات عنا</a></li>
+            <li><a href="{% url 'first_storePages:shop' %}"><i class="fas fa-shopping-bag"></i>المتجر</a></li>
+            <li><a href="{% url 'first_storePages:orders' %}"><i class="fas fa-box"></i>الطلبات</a></li>
+            <li><a href="{% url 'first_storePages:contact' %}"><i class="fas fa-envelope"></i>اتصل بنا</a></li>
+        </ul>
+
+        <div class="user-actions">
+            <form class="search-form" action="{% url 'first_storePages:search' %}" method="GET">
+                <input type="text" name="query" placeholder="ابحث هنا...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
+            <div class="icons">
+                {% if user.is_authenticated %}
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="user-icon">
+                            <i class="fas fa-user"></i>
+                            <span class="username">{{ user.username }}</span>
+                        </div>
+                        <div class="dropdown-menu" id="dropdownMenu">
+                            <a href="{% url 'first_storePages:profile' %}">
+                                <i class="fas fa-user-circle"></i>
+                                الملف الشخصي
+                            </a>
+                            <a href="{% url 'first_storePages:orders' %}">
+                                <i class="fas fa-shopping-bag"></i>
+                                طلباتي
+                            </a>
+                            <a href="{% url 'first_storePages:wishlist' %}">
+                                <i class="fas fa-heart"></i>
+                                المفضلة
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="{% url 'first_storePages:logout' %}" class="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                تسجيل الخروج
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="{% url 'first_storePages:login' %}" class="fas fa-user"></a>
+                {% endif %}
+                <a href="{% url 'first_storePages:wishlist' %}" class="fas fa-heart"></a>
+                <a href="{% url 'first_storePages:cart' %}" class="fas fa-shopping-cart">
+                    {% if request.session.cart_count %}
+                        <span class="cart-count">{{ request.session.cart_count }}</span>
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="contact-section">
+  <div class="container">
+    <h2 class="section-title">تواصل معنا</h2>
+    
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-item">
+          <h3 class="info-title">
+            <i class="fas fa-map-marker-alt"></i>
+            العنوان
+          </h3>
+          <p class="info-content">123 شارع المثال، القاهرة، مصر</p>
+        </div>
+
+        <div class="info-item">
+          <h3 class="info-title">
+            <i class="fas fa-phone"></i>
+            الهاتف
+          </h3>
+          <p class="info-content">+20 123 456 7890</p>
+        </div>
+
+        <div class="info-item">
+          <h3 class="info-title">
+            <i class="fas fa-envelope"></i>
+            البريد الإلكتروني
+          </h3>
+          <p class="info-content">info@eterna.com</p>
+        </div>
+
+        <div class="info-item">
+          <h3 class="info-title">
+            <i class="fas fa-clock"></i>
+            ساعات العمل
+          </h3>
+          <p class="info-content">السبت - الخميس: 9:00 صباحاً - 9:00 مساءً</p>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-form" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label class="form-label">الاسم</label>
+          <input type="text" class="form-control" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">البريد الإلكتروني</label>
+          <input type="email" class="form-control" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">الموضوع</label>
+          <input type="text" class="form-control" name="subject" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">الرسالة</label>
+          <textarea class="form-control" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

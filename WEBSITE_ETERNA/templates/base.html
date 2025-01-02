@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ETERNA{% endblock %}</title>
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- Component CSS -->
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Page Specific CSS -->
+    {% block page_css %}{% endblock %}
+    
+    {% block extra_css %}{% endblock %}
+    {% block styles %}{% endblock %}
+</head>
+<body>
+    {% include "header.html" %}
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    {% include "footer.html" %}
+    
+    <!-- Core JavaScript -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/header.js' %}"></script>
+    
+    <!-- Page Specific JavaScript -->
+    {% block page_js %}{% endblock %}
+</body>
+</html>

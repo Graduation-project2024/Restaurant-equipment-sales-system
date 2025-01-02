@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="register-container">
+  <form class="register-form" method="post" action="" onsubmit="return validateForm()">
+    {% csrf_token %}
+    <h2 class="form-title">تسجيل حساب جديد</h2>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="error-message">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="form-group">
+      <label class="form-label" for="username">اسم المستخدم</label>
+      <input type="text" class="form-control" id="username" name="username" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="email">البريد الإلكتروني</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="password">كلمة المرور</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+      
+      <div class="password-requirements">
+        <h4>متطلبات كلمة المرور</h4>
+        <div class="requirement" id="length">
+          <i class="fas fa-circle"></i>
+          8 أحرف على الأقل
+        </div>
+        <div class="requirement" id="uppercase">
+          <i class="fas fa-circle"></i>
+          حرف كبير واحد على الأقل
+        </div>
+        <div class="requirement" id="lowercase">
+          <i class="fas fa-circle"></i>
+          حرف صغير واحد على الأقل
+        </div>
+        <div class="requirement" id="number">
+          <i class="fas fa-circle"></i>
+          رقم واحد على الأقل
+        </div>
+        <div class="requirement" id="special">
+          <i class="fas fa-circle"></i>
+          رمز خاص واحد على الأقل
+        </div>
+        <div class="strength-meter">
+          <div class="meter"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="confirm_password">تأكيد كلمة المرور</label>
+      <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+    </div>
+
+    <button type="submit" class="submit-btn">تسجيل</button>
+
+    <div class="login-link">
+      لديك حساب بالفعل؟ <a href="{% url 'first_storePages:login' %}">تسجيل الدخول الآن</a>
+    </div>
+  </form>
+</div>
+
+<script src="{% static 'js/password-validation.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="shop-section">
+  <div class="container">
+    <h1 class="section-title">منتجاتنا</h1>
+
+    <div class="search-bar">
+      <input type="text" class="search-input" placeholder="ابحث عن منتج...">
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn active">الكل</button>
+      <button class="filter-btn">أدوات طبخ</button>
+      <button class="filter-btn">أدوات تقديم</button>
+      <button class="filter-btn">معدات تخزين</button>
+      <button class="filter-btn">أجهزة كهربائية</button>
+    </div>
+
+    <div class="shop-grid">
+      {% for product in products %}
+      <div class="product-card">
+        <div class="product-image">
+          <img src="{{ product.image.url }}" alt="{{ product.name }}">
+          <div class="product-overlay">
+            <button class="overlay-btn">
+              <i class="fas fa-heart"></i>
+            </button>
+            <button class="overlay-btn">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-title">{{ product.name }}</h3>
+          <div class="product-price">{{ product.price }} جنيه</div>
+          <form method="post" action="{% url 'first_storePages:add_to_cart' %}">
+            {% csrf_token %}
+            <input type="hidden" name="pid" value="{{ product.id }}">
+            <input type="hidden" name="name" value="{{ product.name }}">
+            <input type="hidden" name="price" value="{{ product.price }}">
+            <input type="hidden" name="image" value="{{ product.image.url }}">
+            <button type="submit" class="add-to-cart">
+              <i class="fas fa-shopping-cart"></i>
+              أضف إلى السلة
+            </button>
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="pagination">
+      <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+    </div>
+  </div>
+</section>
+{% endblock %}
